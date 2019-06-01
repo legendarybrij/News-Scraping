@@ -27,7 +27,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/unit18Populater";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
 
@@ -40,7 +42,7 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
         //var data ="";
     // Now, we grab every h2 within an article tag, and do the following:
-    $("div")
+    //$("div")
     $("article a").each(function(i, element) {
       // Save an empty result object
       var result = {};
