@@ -4,7 +4,11 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    var div = $("<a>");
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "</p>");
+    $("#articles").append(div);
+    div.attr("href","https://www.investing.com"+data[i].link); 
+    div.text("https://www.investing.com"+data[i].link);
   }
 });
 
