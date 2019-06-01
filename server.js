@@ -74,7 +74,7 @@ app.get("/scrape", function(req, res) {
     });
   
     // Send a message to the client
-    res.send("Scrape Complete. Move on to the home Page.");
+    res.send("Scrape Complete.");
     //res.send(data);
     //console.log(data);
   });
