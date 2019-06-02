@@ -75,3 +75,26 @@ $(document).on("click", "#savenote", function() {
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });
+
+
+
+// Manually done the toggle button in navbar when windows get smaller since it was acting weird on click
+
+var count=0;
+
+$(document).on('click','.navbar-toggler',function(e) {
+      //console.log(count % 2 ===0);
+       console.log(e.originalEvent.path[1].nextElementSibling.classList[1]==="show");
+      // if(e.originalEvent.path[1].nextElementSibling.classList==="collapsing")
+      // {
+      //   $(navbarNav).addClass('show');
+      // }
+      if(e.originalEvent.path[1].nextElementSibling.classList[1]!=="show")
+      {
+      $(navbarText).addClass('show');
+      count++;
+      }else if(e.originalEvent.path[1].nextElementSibling.classList[1]==="show"){
+        $(navbarText).removeClass('show');
+        count++;
+      }
+});

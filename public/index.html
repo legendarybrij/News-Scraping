@@ -2,9 +2,29 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Scraping With Mongoose</title>
+    <title>News Scraper with Mongodb and Mongoose</title>
+     <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap Jquery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <script src="app.js"></script>
     <style>
-      body { background-color: #F2F6D0 }
+      body { background-color: rgb(235, 245, 247); }
+      #topNav{
+        background-color: rgb(28, 32, 32);
+      }
+      .navInfo{
+        color:#fff;
+      }
+      /* .navbar-toggler-icon{
+        background-color: rgb(80, 90, 92);
+      } */
+      .navInfo:hover{
+        color:#ffc107;
+      }
       #wrapper {
         width: 960px;
         margin-left: auto;
@@ -38,12 +58,32 @@
   </head>
   <body>
     <div id="wrapper">
-      <h1>Investing News Scraper</h1>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="topNav">
+            <a class="navbar-brand navInfo" href="#">Investing.com News Scraper</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link navInfo" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link navInfo" href="#">Saved Articles</a>
+                </li>
+               
+                <form class="form-inline">
+                    <button class="btn btn-outline-warning" onclick="location.href='/scrape'" id="scrape" type="button">Scrape New Articles</button>
+                    <button class="btn btn-outline-warning" onclick="location.href='/remove'" id="clear" type="button">Clear Articles</button>
+                  </form>
+              </ul>
+            </div>
+          </nav>
+      
       
       <div id="articles"></div>
       <div id="notes"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js"></script>
+    
   </body>
 </html>

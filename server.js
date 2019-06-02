@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/unit18Populater";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
@@ -74,9 +74,7 @@ app.get("/scrape", function(req, res) {
     });
   
     // Send a message to the client
-    res.send("Scrape Complete.");
-    //res.send(data);
-    //console.log(data);
+    res.redirect('/#'+"Scraped+Successfully");
   });
 });
 app.get("/remove", function(req, res) {
@@ -86,7 +84,7 @@ app.get("/remove", function(req, res) {
       // If an error occurred, send it to the client
       res.json(err);
     });
-    res.send("Removed Successfully");
+    res.redirect('/#'+"Removed+Successfully");
 });
 
 // Route for getting all Articles from the db
