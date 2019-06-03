@@ -59,6 +59,67 @@ $.getJSON("/articles", function(data) {
   }
 });
 
+// Grab the articles as a json
+$.getJSON("/savedarticles", function(data) {
+  // For each one
+  for (var i = 0; i < data.length; i++) {
+    // Display the apropos information on the page
+    var newsDiv =$("<div>");
+    var title =$("<a>");
+    var noteButton = $("<button>");
+    var deleteButton = $("<button>");
+    var content = $("<div>");
+    var newsImage=$("<img>");
+    var publish =$("<div>");
+    var containerDiv=$("<div>");
+
+    // $(containerDiv).prepend(content);
+    // content.text(response.articles[i].content);
+    // content.addClass("movieNewsContent");
+
+    $("#savedArticles").append(newsDiv);
+    newsDiv.addClass("newsTitle card-header");
+    newsDiv.append(title);
+    title.addClass("articleTitle");
+    title.text(i+1+". "+data[i].title);
+    title.attr("href","https://www.investing.com"+data[i].link);
+    title.attr("data-id",data[i]._id);
+    newsDiv.append("<br>");
+    newsDiv.append(noteButton);
+    noteButton.addClass("noteButton");
+    noteButton.attr("data-id",data[i]._id);
+    noteButton.text("Add Note");
+    newsDiv.append(" ");
+    newsDiv.append(deleteButton);
+    deleteButton.addClass("deleteButton");
+    deleteButton.text("Delete Saved Article");
+    deleteButton.attr("data-id",data[i]._id);
+
+    // $(containerDiv).prepend(publish);
+    // var newsDate=response.articles[i].publishedAt;
+    // var momentDate = moment(newsDate,'YYYY-MM-DD');
+    // publish.text(momentDate.format('LL'));
+    // publish.addClass("movieNewsDate");
+
+    // $(".movieNews").prepend(containerDiv);
+    // containerDiv.addClass("col-md-8");
+
+    // $(".movieNews").prepend(newsImage);
+    // newsImage.addClass("movieNewsImage");
+    // newsImage.attr("src","https://www.investing.com"+data[i].link);
+    // newsImage.addClass("col-md-4");
+
+
+
+    // var div = $("<a>");
+    // $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "</p>");
+    // $("#articles").append(div);
+    // div.attr("href","https://www.investing.com"+data[i].link); 
+    // div.text("https://www.investing.com"+data[i].link);
+  }
+});
+
+
 
 // Whenever someone clicks a note button
 $(document).on("click", ".noteButton", function() {
@@ -111,6 +172,28 @@ $(document).on("click", ".saveButton", function() {
     // With that done
     .then(function(data) {
       // Log the response
+      console.log(data);
+    });
+    
+});
+
+$(document).on("click", ".deleteButton", function() {
+  // Grab the id associated with the article from the submit button
+  var thisId = $(this).attr("data-id");
+  console.log(thisId);
+  
+  // Run a POST request to change the saved article, making saved property equals true
+  $.ajax({
+    method: "POST",
+    url: "/delete/" + thisId,
+    data: {
+      //saved: false
+    }
+  })
+    // With that done
+    .then(function(data) {
+      // Log the response
+      location.reload();
       console.log(data);
     });
     

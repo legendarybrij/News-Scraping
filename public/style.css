@@ -1,0 +1,73 @@
+
+body { background-color: #fff; }
+#topNav{
+  background-color: rgb(28, 32, 32);
+}
+.navInfo{
+  color:#fff;
+}
+/* .navbar-toggler-icon{
+  background-color: rgb(80, 90, 92);
+} */
+.navInfo:hover{
+  color:#ffc107;
+}
+#wrapper {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10%;
+}
+#articles, #savedArticles {
+  display: inline-block;
+  overflow: auto;
+  width: 60%;
+  height: 700px;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #b3adad, 0 0 30px #dfded9;
+}
+#notes {
+  float: right;
+  width: 30%;
+}
+textarea, input {
+  display: block;
+  width: 100%;
+  background-color: #6eaae2;
+}
+input {
+  height: 36px;
+  font-size: 24px;
+}
+textarea {
+  height: 200px;
+  font-size: 18px;
+}
+
+
+/* .movieNewsDate{
+    margin-top:20px;
+    font-size: 10px;
+    text-align: left;
+}
+.movieNewsImage{
+    width:280px;
+    height:200px;
+    text-align: left;
+}
+.movieNewsContent{
+    text-align: left;
+    margin-top:5px;
+    font-size: 12px;
+
+} */
+.newsTitle{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    background-color: #6eaae2;
+    
+} 
+.articleTitle{
+  color: #fff;
+}
+
