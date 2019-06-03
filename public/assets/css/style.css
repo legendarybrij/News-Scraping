@@ -1,0 +1,118 @@
+
+body { background-color: #fff; }
+
+#background, html, body {
+  background: url("../images/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 700px;
+}
+
+
+.topPageInfo {
+  padding-top: 100px;
+}
+
+.about {
+  transition: ease-out;
+  transition-duration: 0.5s;
+  color: #fff;
+  border-radius: 100px;
+  text-shadow: 0 0 5px #7abc4f, 0 0 10px #85b465, 0 0 20px #86ce56, 0 0 30px #95c277, 0 0 40px #a4d385, 0 0 55px #87c75d, 0 0 75px #8bc068;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+} 
+
+.about:hover {
+  background-color: #7abc4f;
+  color: #FFffff;
+  transition: ease-in;
+  transition-duration: 0.5s;
+  transform: scale(1.2);
+}
+
+#topNav{
+  background-color: #6aac3e;
+}
+.navInfo{
+  color:#fff;
+}
+#scrape:hover, #clear:hover, .goTo:hover {
+  background-color: gold;
+  color:#fff;
+  text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 20px gold, 0 0 30px gold, 0 0 40px gold, 0 0 55px gold, 0 0 75px gold;
+}
+/* .navbar-toggler-icon{
+  background-color: rgb(80, 90, 92);
+} */
+.navInfo:hover{
+  color:#ffc107;
+}
+#wrapper {
+  width: 98%;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 10%;
+}
+#articles, #savedArticles {
+  display: inline-block;
+  overflow: auto;
+  width: 60%;
+  height: 500px;
+  opacity: 0.9;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #b3adad, 0 0 30px #dfded9;
+}
+#notes {
+  float: right;
+  opacity: 0.9;
+  width: 30%;
+}
+#articleNoteTitle {
+  color: #fff;
+  text-shadow: 0 0 5px #55a023, 0 0 10px #42791d;
+
+}
+textarea, input {
+  display: block;
+  width: 100%;
+  opacity: 0.9;
+  background-color: #7abc4f;
+}
+input {
+  height: 36px;
+  font-size: 24px;
+}
+textarea {
+  height: 200px;
+  font-size: 18px;
+}
+
+
+/* .movieNewsDate{
+    margin-top:20px;
+    font-size: 10px;
+    text-align: left;
+}
+.movieNewsImage{
+    width:280px;
+    height:200px;
+    text-align: left;
+}
+.movieNewsContent{
+    text-align: left;
+    margin-top:5px;
+    font-size: 12px;
+
+} */
+.newsTitle{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    background-color: #7abc4f;
+    
+} 
+.articleTitle{
+  color: #fff;
+}
+

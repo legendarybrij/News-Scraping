@@ -9,10 +9,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    
+    <!-- Fontawesome for icons and symbols -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Java Script -->
     <script src="app.js"></script>
     <!-- CSS -->
-  <link rel="stylesheet" href="./style.css" media="screen" title="no title" charset="utf-8">  
+  <link rel="stylesheet" href="../assets/css/style.css" media="screen" title="no title" charset="utf-8">  
    
   </head>
   <body>
@@ -39,7 +41,22 @@
             </div>
           </nav>
       
-      
+      <div id="background">
+          <div class="row topPageInfo wow fadeIn">
+            
+            <div class="col-md-12 text-center name">
+                <h1 class="display-2 font-weight-bold about">Home</h1>
+                <p class="display-4 about">
+                    <strong>Investing.com News Scraper</strong>
+                </p>
+                <a href="#articles" class="btn btn-unique btn-lg about goTo">Go to Articles
+                    <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+     </div>
+
       <div id="articles"></div>
       <div id="notes" role="dialog"></div>
     </div>
