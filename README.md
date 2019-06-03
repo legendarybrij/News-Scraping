@@ -8,10 +8,12 @@ A web app that lets users view and leave comments on the latest news. But this d
 ### Demo
 * Heroku: [Investing.com News Scraper](https://newsforever.herokuapp.com)
 
-<img src="https://ibb.co/HqYTJJZ" width="400"/>  
-<img src="https://ibb.co/4KpXyrR" width="400"/>
-<img src="https://ibb.co/7JfpXCn" width="400"/>
-<img src="https://ibb.co/k9Cdb2z" width="400"/>
+<img src="https://i.ibb.co/rFHzPr2/home.png" width="400"/>  
+<img src="https://i.ibb.co/xSkgDL1/homearticles.png" width="400"/>
+<img src="https://i.ibb.co/NKp244R/savedpage.png" width="400"/>
+<img src="https://i.ibb.co/hZzqQFr/savedarticles.png" width="400"/>
+
+
 
 
 ## Technologies
