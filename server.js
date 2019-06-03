@@ -48,6 +48,8 @@ app.get("/scrape", function(req, res) {
       var result = {};
      // console.log($(this).attr("img"));
       var news = $(this).attr("href").split("/");
+      var images = $(this).children("img").attr("src");
+      
       if((news[1]==="news" || news[1]==="analysis") && !Number.isInteger(parseInt($(this).text())))
       {
       // Add the text and href of every link, and save them as properties of the result object
@@ -66,14 +68,15 @@ app.get("/scrape", function(req, res) {
       db.Article.create(result)
         .then(function(dbArticle) {
           // View the added result in the console
-          console.log(dbArticle);
+         // console.log(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, log it
-          console.log(err);
+          //console.log(err);
         });
         //console.log(result);
       }
+     console.log(images);
     });
   
     // Send a message to the client
