@@ -12,7 +12,7 @@
     
     <script src="app.js"></script>
     <style>
-      body { background-color: rgb(235, 245, 247); }
+      body { background-color: #fff; }
       #topNav{
         background-color: rgb(28, 32, 32);
       }
@@ -29,13 +29,14 @@
         width: 960px;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 5%;
+        padding-top: 10%;
       }
       #articles {
         display: inline-block;
         overflow: auto;
         width: 60%;
         height: 700px;
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #b3adad, 0 0 30px #dfded9;
       }
       #notes {
         float: right;
@@ -44,7 +45,7 @@
       textarea, input {
         display: block;
         width: 100%;
-        background-color: #FCF5C7;
+        background-color: #ffc107;
       }
       input {
         height: 36px;
@@ -54,6 +55,35 @@
         height: 200px;
         font-size: 18px;
       }
+
+     
+      /* .movieNewsDate{
+          margin-top:20px;
+          font-size: 10px;
+          text-align: left;
+      }
+      .movieNewsImage{
+          width:280px;
+          height:200px;
+          text-align: left;
+      }
+      .movieNewsContent{
+          text-align: left;
+          margin-top:5px;
+          font-size: 12px;
+
+      } */
+      .newsTitle{
+          font-size: 18px;
+          font-weight: bold;
+          text-align: left;
+          background-color: #6eaae2;
+          
+      } 
+      .articleTitle{
+        color: #fff;
+      }
+      
     </style>
   </head>
   <body>
@@ -82,7 +112,7 @@
       
       
       <div id="articles"></div>
-      <div id="notes"></div>
+      <div id="notes" role="dialog"></div>
     </div>
     
   </body>

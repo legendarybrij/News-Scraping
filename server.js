@@ -42,22 +42,25 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
         //var data ="";
     // Now, we grab every h2 within an article tag, and do the following:
-    //$("div")
+   
     $("article a").each(function(i, element) {
       // Save an empty result object
       var result = {};
+     // console.log($(this).attr("img"));
       var news = $(this).attr("href").split("/");
-      
       if((news[1]==="news" || news[1]==="analysis") && !Number.isInteger(parseInt($(this).text())))
       {
       // Add the text and href of every link, and save them as properties of the result object
+      
       result.title = $(this)
        //.children("a")
         .text();
       result.link = $(this)
         //.children("a")
         .attr("href");
-      // result.img = $(this).img("src");
+      result.saved = false;
+      result.pic = "here.jpg";
+      
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
@@ -93,6 +96,33 @@ app.get("/articles", function(req, res) {
   db.Article.find({})
     .then(function(dbArticle) {
       // If we were able to successfully find Articles, send them back to the client
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+// Route for getting all Saved Articles from the db
+app.get("/savedarticles", function(req, res) {
+  // Grab every document in the Articles collection
+  db.Article.find({ saved: true })
+    .then(function(dbArticle) {
+      // If we were able to successfully find Articles, send them back to the client
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+app.post("/save/:id", function(req, res) {
+  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+  db.Article.findOneAndUpdate({ _id: req.params.id }, {saved: true},{ new: true })
+    .then(function(dbArticle) {
+      // If we were able to successfully find an Article with the given id, send it back to the client
       res.json(dbArticle);
     })
     .catch(function(err) {
