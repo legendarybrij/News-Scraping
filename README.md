@@ -18,5 +18,5 @@ A web app that lets users view and leave comments on the latest news. But this d
 
 ## Technologies
 * MongoDB, Express, NodeJS.
-* npm: axios, cheerio, handlebars, body-parser.
+* npm: axios, cheerio, morgan, mongoose
 * jQuery, Bootstrap 4.
