@@ -182,6 +182,15 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
+
+app.get("/saved", function (req, res) {
+  res.sendfile("./public/saved.html");
+});
+
+app.get("/", function (req, res) {
+  res.sendfile("./public/index.html");
+});
+
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
