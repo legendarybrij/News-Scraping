@@ -10,44 +10,48 @@ $.getJSON("/articles", function(data) {
     var saveButton = $("<button>");
     var content = $("<div>");
     var newsImage=$("<img>");
-    var publish =$("<div>");
+    var link =$("<a>");
     var containerDiv=$("<div>");
+
+    
+    
 
     // $(containerDiv).prepend(content);
     // content.text(response.articles[i].content);
     // content.addClass("movieNewsContent");
+    // $(containerDiv).prepend(publish);
 
+    
+    
     $("#articles").append(newsDiv);
     newsDiv.addClass("newsTitle card-header");
     newsDiv.append(title);
     title.addClass("articleTitle");
     title.text(i+1+". "+data[i].title);
-    title.attr("href","https://www.investing.com"+data[i].link);
     title.attr("data-id",data[i]._id);
     newsDiv.append("<br>");
+    newsDiv.append(link);
+    link.text(data[i].link);
+    link.attr("href",data[i].link);
+    link.attr("data-id",data[i]._id);
+    newsDiv.append("<br>");
     newsDiv.append(noteButton);
-    noteButton.addClass("noteButton");
+    noteButton.addClass("btn btn-warning noteButton");
     noteButton.attr("data-id",data[i]._id);
     noteButton.text("Add Note");
     newsDiv.append(" ");
     newsDiv.append(saveButton);
-    saveButton.addClass("saveButton");
+    saveButton.addClass("saveButton btn btn-primary");
     saveButton.text("Save Article");
     saveButton.attr("data-id",data[i]._id);
 
-    // $(containerDiv).prepend(publish);
-    // var newsDate=response.articles[i].publishedAt;
-    // var momentDate = moment(newsDate,'YYYY-MM-DD');
-    // publish.text(momentDate.format('LL'));
-    // publish.addClass("movieNewsDate");
+    $("#articles").append(containerDiv);
+    containerDiv.addClass("col-md-8");
 
-    // $(".movieNews").prepend(containerDiv);
-    // containerDiv.addClass("col-md-8");
-
-    // $(".movieNews").prepend(newsImage);
-    // newsImage.addClass("movieNewsImage");
-    // newsImage.attr("src","https://www.investing.com"+data[i].link);
-    // newsImage.addClass("col-md-4");
+    $("#articles").append(newsImage);
+    newsImage.addClass("articleNewsImage");
+    newsImage.attr("src",data[i].pic);
+    newsImage.addClass("col-md-4");
 
 
 
@@ -70,44 +74,48 @@ $.getJSON("/savedarticles", function(data) {
     var deleteButton = $("<button>");
     var content = $("<div>");
     var newsImage=$("<img>");
-    var publish =$("<div>");
+    var link =$("<a>");
     var containerDiv=$("<div>");
+
+    
+    
 
     // $(containerDiv).prepend(content);
     // content.text(response.articles[i].content);
     // content.addClass("movieNewsContent");
+    // $(containerDiv).prepend(publish);
 
+    
+    
     $("#savedArticles").append(newsDiv);
     newsDiv.addClass("newsTitle card-header");
     newsDiv.append(title);
     title.addClass("articleTitle");
     title.text(i+1+". "+data[i].title);
-    title.attr("href","https://www.investing.com"+data[i].link);
     title.attr("data-id",data[i]._id);
     newsDiv.append("<br>");
+    newsDiv.append(link);
+    link.text(data[i].link);
+    link.attr("href",data[i].link);
+    link.attr("data-id",data[i]._id);
+    newsDiv.append("<br>");
     newsDiv.append(noteButton);
-    noteButton.addClass("noteButton");
+    noteButton.addClass("btn btn-warning noteButton");
     noteButton.attr("data-id",data[i]._id);
     noteButton.text("Add Note");
     newsDiv.append(" ");
     newsDiv.append(deleteButton);
-    deleteButton.addClass("deleteButton");
-    deleteButton.text("Delete Saved Article");
+    deleteButton.addClass("deleteButton btn btn-primary");
+    deleteButton.text("Save Article");
     deleteButton.attr("data-id",data[i]._id);
 
-    // $(containerDiv).prepend(publish);
-    // var newsDate=response.articles[i].publishedAt;
-    // var momentDate = moment(newsDate,'YYYY-MM-DD');
-    // publish.text(momentDate.format('LL'));
-    // publish.addClass("movieNewsDate");
+    $("#savedArticles").append(containerDiv);
+    containerDiv.addClass("col-md-8");
 
-    // $(".movieNews").prepend(containerDiv);
-    // containerDiv.addClass("col-md-8");
-
-    // $(".movieNews").prepend(newsImage);
-    // newsImage.addClass("movieNewsImage");
-    // newsImage.attr("src","https://www.investing.com"+data[i].link);
-    // newsImage.addClass("col-md-4");
+    $("#savedArticles").append(newsImage);
+    newsImage.addClass("articleNewsImage");
+    newsImage.attr("src",data[i].pic);
+    newsImage.addClass("col-md-4");
 
 
 

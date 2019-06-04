@@ -94,17 +94,18 @@ textarea {
     font-size: 10px;
     text-align: left;
 }
-.movieNewsImage{
-    width:280px;
-    height:200px;
-    text-align: left;
-}
+
 .movieNewsContent{
     text-align: left;
     margin-top:5px;
     font-size: 12px;
 
 } */
+.articleNewsImage{
+  width:280px;
+  height:200px;
+  text-align: left;
+}
 .newsTitle{
     font-size: 18px;
     font-weight: bold;

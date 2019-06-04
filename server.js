@@ -36,6 +36,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   db.Article.remove({});
+  
   // First, we grab the body of the html with axios
   axios.get("https://www.investing.com/news/latest-news").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -43,45 +44,46 @@ app.get("/scrape", function(req, res) {
         //var data ="";
     // Now, we grab every h2 within an article tag, and do the following:
    
+   var count = 0;
     $("article a").each(function(i, element) {
       // Save an empty result object
       var result = {};
+      
      // console.log($(this).attr("img"));
       var news = $(this).attr("href").split("/");
-      var images = $(this).children("img").attr("src");
+      var picImage = $(this).children("img").attr("src");
       
-      if((news[1]==="news" || news[1]==="analysis") && !Number.isInteger(parseInt($(this).text())))
+      if((news[1]==="news" || news[1]==="analysis") && !Number.isInteger(parseInt($(this).text())) && picImage!==undefined && picImage.includes(".jpg"))
       {
       // Add the text and href of every link, and save them as properties of the result object
       
       result.title = $(this)
-       //.children("a")
-        .text();
-      result.link = $(this)
+        .children("img")
+        .attr("alt");
+      result.link = "https://www.investing.com"+$(this)
         //.children("a")
         .attr("href");
       result.saved = false;
-      result.pic = "here.jpg";
+      result.pic = picImage;
       
-
+      
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
           // View the added result in the console
-         // console.log(dbArticle);
+         //console.log(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, log it
           //console.log(err);
         });
-        //console.log(result);
+
       }
-     console.log(images);
     });
-  
     // Send a message to the client
     res.redirect('/#'+"Scraped+Successfully");
   });
+  
 });
 app.get("/remove", function(req, res) {
   // Grab every document in the Articles collection
