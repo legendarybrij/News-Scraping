@@ -38,6 +38,10 @@ body { background-color: #fff; }
 .navInfo{
   color:#fff;
 }
+
+#scrape {
+margin-right: 10px;
+}
 #scrape:hover, #clear:hover, .goTo:hover {
   background-color: gold;
   color:#fff;
@@ -67,6 +71,10 @@ body { background-color: #fff; }
   float: right;
   opacity: 0.9;
   width: 30%;
+}
+
+#savenote {
+  margin-top:10px;
 }
 #articleNoteTitle {
   color: #fff;

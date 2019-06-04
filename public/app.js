@@ -13,45 +13,43 @@ $.getJSON("/articles", function(data) {
     var link =$("<a>");
     var containerDiv=$("<div>");
 
-    
-    
+  
 
-    // $(containerDiv).prepend(content);
-    // content.text(response.articles[i].content);
-    // content.addClass("movieNewsContent");
-    // $(containerDiv).prepend(publish);
-
-    
-    
-    $("#articles").append(newsDiv);
-    newsDiv.addClass("newsTitle card-header");
-    newsDiv.append(title);
+    containerDiv.addClass("newsTitle card-header");
+    containerDiv.append(title);
     title.addClass("articleTitle");
     title.text(i+1+". "+data[i].title);
     title.attr("data-id",data[i]._id);
-    newsDiv.append("<br>");
-    newsDiv.append(link);
+    containerDiv.append("<br>");
+
+    $("#articles").append(containerDiv);
+    $(containerDiv).append(newsImage);
+    newsImage.addClass("articleNewsImage");
+    newsImage.attr("src",data[i].pic);
+    newsImage.addClass("col-md-4");
+    containerDiv.append("<br>");
+    // $("#articles").append(containerDiv);
+    // containerDiv.addClass("col-md-12");
+    
+    containerDiv.append(link);
     link.text(data[i].link);
     link.attr("href",data[i].link);
     link.attr("data-id",data[i]._id);
-    newsDiv.append("<br>");
-    newsDiv.append(noteButton);
+    containerDiv.append("<br>");
+    containerDiv.append(noteButton);
     noteButton.addClass("btn btn-warning noteButton");
     noteButton.attr("data-id",data[i]._id);
     noteButton.text("Add Note");
-    newsDiv.append(" ");
-    newsDiv.append(saveButton);
+    containerDiv.append(" ");
+    containerDiv.append(saveButton);
     saveButton.addClass("saveButton btn btn-primary");
     saveButton.text("Save Article");
     saveButton.attr("data-id",data[i]._id);
 
-    $("#articles").append(containerDiv);
-    containerDiv.addClass("col-md-8");
+  
+    
 
-    $("#articles").append(newsImage);
-    newsImage.addClass("articleNewsImage");
-    newsImage.attr("src",data[i].pic);
-    newsImage.addClass("col-md-4");
+    
 
 
 
@@ -77,46 +75,38 @@ $.getJSON("/savedarticles", function(data) {
     var link =$("<a>");
     var containerDiv=$("<div>");
 
-    
-    
+  
 
-    // $(containerDiv).prepend(content);
-    // content.text(response.articles[i].content);
-    // content.addClass("movieNewsContent");
-    // $(containerDiv).prepend(publish);
-
-    
-    
-    $("#savedArticles").append(newsDiv);
-    newsDiv.addClass("newsTitle card-header");
-    newsDiv.append(title);
+    containerDiv.addClass("newsTitle card-header");
+    containerDiv.append(title);
     title.addClass("articleTitle");
     title.text(i+1+". "+data[i].title);
     title.attr("data-id",data[i]._id);
-    newsDiv.append("<br>");
-    newsDiv.append(link);
-    link.text(data[i].link);
-    link.attr("href",data[i].link);
-    link.attr("data-id",data[i]._id);
-    newsDiv.append("<br>");
-    newsDiv.append(noteButton);
-    noteButton.addClass("btn btn-warning noteButton");
-    noteButton.attr("data-id",data[i]._id);
-    noteButton.text("Add Note");
-    newsDiv.append(" ");
-    newsDiv.append(deleteButton);
-    deleteButton.addClass("deleteButton btn btn-primary");
-    deleteButton.text("Save Article");
-    deleteButton.attr("data-id",data[i]._id);
+    containerDiv.append("<br>");
 
     $("#savedArticles").append(containerDiv);
-    containerDiv.addClass("col-md-8");
-
-    $("#savedArticles").append(newsImage);
+    $(containerDiv).append(newsImage);
     newsImage.addClass("articleNewsImage");
     newsImage.attr("src",data[i].pic);
     newsImage.addClass("col-md-4");
-
+    containerDiv.append("<br>");
+    // $("#articles").append(containerDiv);
+    // containerDiv.addClass("col-md-12");
+    
+    containerDiv.append(link);
+    link.text(data[i].link);
+    link.attr("href",data[i].link);
+    link.attr("data-id",data[i]._id);
+    containerDiv.append("<br>");
+    containerDiv.append(noteButton);
+    noteButton.addClass("btn btn-warning noteButton");
+    noteButton.attr("data-id",data[i]._id);
+    noteButton.text("Add Note");
+    containerDiv.append(" ");
+    containerDiv.append(deleteButton);
+    deleteButton.addClass("deleteButton btn btn-primary");
+    deleteButton.text("Save Article");
+    deleteButton.attr("data-id",data[i]._id);
 
 
     // var div = $("<a>");
@@ -151,7 +141,7 @@ $(document).on("click", ".noteButton", function() {
       // A textarea to add a new note body
       $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
-      $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+      $("#notes").append("<button class='btn btn-success' data-id='" + data._id + "' id='savenote'>Save Note</button>");
 
       // If there's a note in the article
       if (data.note) {
