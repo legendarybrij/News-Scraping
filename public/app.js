@@ -8,9 +8,9 @@ $.getJSON("/articles", function(data) {
     var title =$("<a>");
     var noteButton = $("<button>");
     var saveButton = $("<button>");
-    var content = $("<div>");
+    var paragraph = $("<p>");
     var newsImage=$("<img>");
-    var link =$("<a>");
+    var time =$("<p>");
     var containerDiv=$("<div>");
 
     containerDiv.addClass("newsTitle card-header");
@@ -18,20 +18,25 @@ $.getJSON("/articles", function(data) {
     title.addClass("articleTitle");
     title.text(i+1+". "+data[i].title);
     title.attr("data-id",data[i]._id);
-    containerDiv.append("<br>");
+    title.attr("href",data[i].link);
+    title.append("<br>");
 
     $("#articles").append(containerDiv);
     $(containerDiv).append(newsImage);
     newsImage.addClass("articleNewsImage");
     newsImage.attr("src",data[i].pic);
     newsImage.addClass("col-md-4");
-    containerDiv.append("<br>");
+    $(containerDiv).append(time);
+    time.text(data[i].time);
+    $(containerDiv).append(paragraph);
+    paragraph.addClass("paragraph");
+    paragraph.text(data[i].story);
     
-    containerDiv.append(link);
-    link.text(data[i].link);
-    link.attr("href",data[i].link);
-    link.attr("data-id",data[i]._id);
-    containerDiv.append("<br>");
+    // containerDiv.append(link);
+    // link.text(data[i].link);
+    // link.attr("href",data[i].link);
+    // link.attr("data-id",data[i]._id);
+    
     containerDiv.append(noteButton);
     noteButton.addClass("btn btn-warning noteButton");
     noteButton.attr("data-id",data[i]._id);
@@ -53,9 +58,9 @@ $.getJSON("/savedarticles", function(data) {
     var title =$("<a>");
     var noteButton = $("<button>");
     var deleteButton = $("<button>");
-    var content = $("<div>");
+    var paragraph = $("<p>");
     var newsImage=$("<img>");
-    var link =$("<a>");
+    var time =$("<p>");
     var containerDiv=$("<div>");
 
   
@@ -65,20 +70,25 @@ $.getJSON("/savedarticles", function(data) {
     title.addClass("articleTitle");
     title.text(i+1+". "+data[i].title);
     title.attr("data-id",data[i]._id);
-    containerDiv.append("<br>");
+    title.attr("href",data[i].link);
+    title.append("<br>");
 
     $("#savedArticles").append(containerDiv);
     $(containerDiv).append(newsImage);
     newsImage.addClass("articleNewsImage");
     newsImage.attr("src",data[i].pic);
     newsImage.addClass("col-md-4");
-    containerDiv.append("<br>");
+    $(containerDiv).append(time);
+    time.text(data[i].time);
+    $(containerDiv).append(paragraph);
+    paragraph.addClass("paragraph");
+    paragraph.text(data[i].story);
     
-    containerDiv.append(link);
-    link.text(data[i].link);
-    link.attr("href",data[i].link);
-    link.attr("data-id",data[i]._id);
-    containerDiv.append("<br>");
+    // containerDiv.append(link);
+    // link.text(data[i].link);
+    // link.attr("href",data[i].link);
+    // link.attr("data-id",data[i]._id);
+    
     containerDiv.append(noteButton);
     noteButton.addClass("btn btn-warning noteButton");
     noteButton.attr("data-id",data[i]._id);

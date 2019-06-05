@@ -20,18 +20,18 @@
   <body>
     <div id="wrapper">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="topNav">
-            <a class="navbar-brand navInfo" href="/">Investing.com News Scraper</a>
+            <a class="navbar-brand navInfo" href="#">Investing.com News Scraper</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link navInfo" href="/">Home </a>
-                </li>
                 <li class="nav-item active">
-                        <a class="nav-link navInfo" href="/saved">Saved Articles <span class="sr-only">(current)</span></a>
-                 </li>
+                  <a class="nav-link navInfo" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link navInfo" href="/saved">Saved Articles</a>
+                </li>
                
                 <form class="form-inline">
                     <button class="btn btn-outline-warning" onclick="location.href='/scrape'" id="scrape" type="button">Scrape New Articles</button>
@@ -40,27 +40,15 @@
               </ul>
             </div>
           </nav>
-      
-          <div id="background">
-                <div class="row topPageInfo wow fadeIn">
-                  
-                  <div class="col-md-12 text-center name">
-                      <h1 class="display-2 font-weight-bold about">Saved Articles</h1>
-                      <p class="display-4 about">
-                          <strong>Investing.com News Scraper</strong>
-                      </p>
-                      <a href="#savedArticlesHeading" class="btn btn-unique btn-lg about goTo">Go to Saved Articles
-                          <i class="fas fa-arrow-down ml-2"></i>
-                      </a>
-                  </div>
-                  <div class="col-md-2"></div>
-                </div>
-           </div>
-      
-      <h2 id="savedArticlesHeading">Saved Articles:</h2>
-      <div id="savedArticles"></div>
-      <div id="notes" role="dialog"></div>
-    </div>
-    
+          <div class="jumbotron mt-4">
+                <h1 class="display-4 text-center">404 Not Found
+                  <span role="img" aria-label="Face with rolling eyes">🙄</span>
+                </h1>
+                <a href="/">← Back To Home</a>
+         </div>
   </body>
 </html>
+
+
+
+

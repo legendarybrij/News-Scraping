@@ -15,7 +15,8 @@ body { background-color: #fff; }
   padding-top: 100px;
 }
 
-.about {
+
+.about, #articlesHeading, #savedArticlesHeading {
   transition: ease-out;
   transition-duration: 0.5s;
   color: #fff;
@@ -23,6 +24,10 @@ body { background-color: #fff; }
   text-shadow: 0 0 5px #7abc4f, 0 0 10px #85b465, 0 0 20px #86ce56, 0 0 30px #95c277, 0 0 40px #a4d385, 0 0 55px #87c75d, 0 0 75px #8bc068;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 } 
+
+#articlesHeading, #savedArticlesHeading {
+   padding-top:80px; /* This helps displaying Latest Articles Heading visible on click scrape new articles   */
+}
 
 .about:hover {
   background-color: #7abc4f;
@@ -47,9 +52,7 @@ margin-right: 10px;
   color:#fff;
   text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 20px gold, 0 0 30px gold, 0 0 40px gold, 0 0 55px gold, 0 0 75px gold;
 }
-/* .navbar-toggler-icon{
-  background-color: rgb(80, 90, 92);
-} */
+
 .navInfo:hover{
   color:#ffc107;
 }
@@ -155,12 +158,8 @@ textarea {
     font-size: 18px;
     font-weight: bold;
     text-align: left;
-    background-color: #7abc4f;
-    
+    background-color: #7abc4f;  
 } 
-.articleTitle{
-  color: #fff;
-}
 
 @media only screen and (min-width: 600px) {
   #articles,
