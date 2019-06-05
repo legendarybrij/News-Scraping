@@ -162,3 +162,9 @@ textarea {
   color: #fff;
 }
 
+@media only screen and (min-width: 600px) {
+  #articles,
+  #savedArticles {
+    height: 940px;
+  }
+}
