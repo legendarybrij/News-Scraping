@@ -32,8 +32,6 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
-
-// A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   db.Article.remove({});
   
@@ -45,26 +43,24 @@ app.get("/scrape", function(req, res) {
     // Now, we grab every h2 within an article tag, and do the following:
    
    var count = 0;
-    $("article a").each(function(i, element) {
+    $(".largeTitle").children("article").each(function(i, element) {
       // Save an empty result object
       var result = {};
-      
-     // console.log($(this).attr("img"));
-      var news = $(this).attr("href").split("/");
-      var picImage = $(this).children("img").attr("src");
-      
-      if((news[1]==="news" || news[1]==="analysis") && !Number.isInteger(parseInt($(this).text())) && picImage!==undefined && picImage.includes(".jpg"))
-      {
-      // Add the text and href of every link, and save them as properties of the result object
-      
-      result.title = $(this)
-        .children("img")
-        .attr("alt");
-      result.link = "https://www.investing.com"+$(this)
-        //.children("a")
-        .attr("href");
+      //console.log(element);
+      result.title = $(element)
+        .children(".textDiv")
+        .children("a")
+        .attr("title");
+      result.link = "https://www.investing.com"+$(element)
+      .children(".textDiv")
+      .children("a")
+      .attr("href");
       result.saved = false;
-      result.pic = picImage;
+      result.pic =  $(element)
+      .find("img").attr("src");
+      result.content =  $(element).children(".textDiv")
+      .children("p").text();
+      
       
       
       // Create a new Article using the `result` object built from scraping
@@ -77,12 +73,63 @@ app.get("/scrape", function(req, res) {
           // If an error occurred, log it
           //console.log(err);
         });
-
-      }
+      console.log(result);
+      
     });
     // Send a message to the client
+    
     res.redirect('/#'+"Scraped+Successfully");
   });
+// A GET route for scraping the echoJS website
+// app.get("/scrape", function(req, res) {
+//   db.Article.remove({});
+  
+//   // First, we grab the body of the html with axios
+//   axios.get("https://www.investing.com/news/latest-news").then(function(response) {
+//     // Then, we load that into cheerio and save it to $ for a shorthand selector
+//     var $ = cheerio.load(response.data);
+//         //var data ="";
+//     // Now, we grab every h2 within an article tag, and do the following:
+   
+//    var count = 0;
+//     $("article a").each(function(i, element) {
+//       // Save an empty result object
+//       var result = {};
+      
+//      // console.log($(this).attr("img"));
+//       var news = $(this).attr("href").split("/");
+//       var picImage = $(this).children("img").attr("src");
+      
+//       if((news[1]==="news" || news[1]==="analysis") && !Number.isInteger(parseInt($(this).text())) && picImage!==undefined && picImage.includes(".jpg"))
+//       {
+//       // Add the text and href of every link, and save them as properties of the result object
+      
+//       result.title = $(this)
+//         .children("img")
+//         .attr("alt");
+//       result.link = "https://www.investing.com"+$(this)
+//         //.children("a")
+//         .attr("href");
+//       result.saved = false;
+//       result.pic = picImage;
+      
+      
+//       // Create a new Article using the `result` object built from scraping
+//       db.Article.create(result)
+//         .then(function(dbArticle) {
+//           // View the added result in the console
+//          //console.log(dbArticle);
+//         })
+//         .catch(function(err) {
+//           // If an error occurred, log it
+//           //console.log(err);
+//         });
+
+//       }
+//     });
+//     // Send a message to the client
+//     res.redirect('/#'+"Scraped+Successfully");
+//   });
   
 });
 app.get("/remove", function(req, res) {

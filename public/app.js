@@ -13,8 +13,6 @@ $.getJSON("/articles", function(data) {
     var link =$("<a>");
     var containerDiv=$("<div>");
 
-  
-
     containerDiv.addClass("newsTitle card-header");
     containerDiv.append(title);
     title.addClass("articleTitle");
@@ -28,8 +26,6 @@ $.getJSON("/articles", function(data) {
     newsImage.attr("src",data[i].pic);
     newsImage.addClass("col-md-4");
     containerDiv.append("<br>");
-    // $("#articles").append(containerDiv);
-    // containerDiv.addClass("col-md-12");
     
     containerDiv.append(link);
     link.text(data[i].link);
@@ -45,19 +41,6 @@ $.getJSON("/articles", function(data) {
     saveButton.addClass("saveButton btn btn-primary");
     saveButton.text("Save Article");
     saveButton.attr("data-id",data[i]._id);
-
-  
-    
-
-    
-
-
-
-    // var div = $("<a>");
-    // $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "</p>");
-    // $("#articles").append(div);
-    // div.attr("href","https://www.investing.com"+data[i].link); 
-    // div.text("https://www.investing.com"+data[i].link);
   }
 });
 
@@ -90,8 +73,6 @@ $.getJSON("/savedarticles", function(data) {
     newsImage.attr("src",data[i].pic);
     newsImage.addClass("col-md-4");
     containerDiv.append("<br>");
-    // $("#articles").append(containerDiv);
-    // containerDiv.addClass("col-md-12");
     
     containerDiv.append(link);
     link.text(data[i].link);
@@ -104,16 +85,9 @@ $.getJSON("/savedarticles", function(data) {
     noteButton.text("Add Note");
     containerDiv.append(" ");
     containerDiv.append(deleteButton);
-    deleteButton.addClass("deleteButton btn btn-primary");
-    deleteButton.text("Save Article");
+    deleteButton.addClass("deleteButton btn btn-danger");
+    deleteButton.text("Delete Article");
     deleteButton.attr("data-id",data[i]._id);
-
-
-    // var div = $("<a>");
-    // $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "</p>");
-    // $("#articles").append(div);
-    // div.attr("href","https://www.investing.com"+data[i].link); 
-    // div.text("https://www.investing.com"+data[i].link);
   }
 });
 
